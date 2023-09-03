@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.sun</groupId>
+    <artifactId>chartent-account</artifactId>
+    <version>1.0</version>
+    <packaging>jar</packaging>
+    <name>chartent-account</name>
+    <description>Demo project for Spring Boot</description>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.1.2</version>
+        <relativePath /> <!-- lookup parent from repository -->
+    </parent>
+    <properties>
+        <java.version>17</java.version>
+        <!--		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>-->
+        <!--		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>-->
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <!--        <start-class>com.san.springboot.Application</start-class>  not allowed in case of docker-->
+        <env>fabrio</env>
+        <start-class>com.san.springboot.Application</start-class>
+    </properties>
+    <!-- <profiles>
+        <profile>
+            <id>fabric8</id>
+            <activation>
+                <property>
+                    <name>env</name><value>fabric8-plugin</value>
+                </property>
+            </activation>
+        </profile>
+    </profiles>-->
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework/org.springframework.jdbc -->
+        <!-- 		<dependency> -->
+        <!-- 			<groupId>org.springframework</groupId> -->
+        <!-- 			<artifactId>org.springframework.jdbc</artifactId> -->
+        <!-- 			<version>2.5.6</version> -->
+        <!-- 		</dependency> -->
+        <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/javax.mail/javax.mail-api -->
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>javax.mail-api</artifactId>
+            <version>1.6.2</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>4.1.1</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.itextpdf/itextpdf -->
+        <dependency>
+            <groupId>com.itextpdf</groupId>
+            <artifactId>itextpdf</artifactId>
+            <version>5.5.13.1</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-core -->
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.security</groupId>-->
+        <!--            <artifactId>spring-security-core</artifactId>-->
+        <!--            			<version>5.2.2.RELEASE</version>-->
+        <!--        </dependency>-->
+        <!--         https://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.security</groupId>-->
+        <!--            <artifactId>spring-security-web</artifactId>-->
+        <!--            			<version>5.2.2.RELEASE</version>-->
+        <!--        </dependency>-->
+        <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-crypto -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-crypto</artifactId>
+            <!--			<version>5.2.2.RELEASE</version>-->
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework.security.oauth/spring-security-oauth2 -->
+        <dependency>
+            <groupId>org.springframework.security.oauth</groupId>
+            <artifactId>spring-security-oauth2</artifactId>
+            <version>2.4.0.RELEASE</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-test -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-test</artifactId>
+            <!--			<version>5.2.2.RELEASE</version>-->
+            <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <!--			<version>5.6.0</version>-->
+            <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.mock-server/mockserver-netty -->
+        <dependency>
+            <groupId>org.mock-server</groupId>
+            <artifactId>mockserver-netty</artifactId>
+            <version>5.9.0</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-server -->
+        <!--        <dependency>-->
+        <!--            <groupId>org.eclipse.jetty</groupId>-->
+        <!--            <artifactId>jetty-server</artifactId>-->
+        <!--            			<version>9.4.26.v20200117</version>-->
+        <!--        </dependency>-->
+    </dependencies>
+    <profiles>
+        <profile>
+            <id>fabric8-plugin</id>
+            <activation>
+                <property>
+                    <name>!envu</name> <!--if system environment variable name "env" not set to "fabrio" then only this profile get executed  eg mvn package -Denv=fabrio  -->
+                    <!--                    <value>fabrio</value>-->
+                </property>
+                <!--                <activeByDefault>true</activeByDefault>-->
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-maven-plugin</artifactId>
+                        <configuration>
+                            <mainClass>com.san.springboot.Application</mainClass>
+                            <layout>JAR</layout>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>repackage</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>io.fabric8</groupId>
+                        <artifactId>docker-maven-plugin</artifactId>
+                        <version>0.43.0</version>
+                        <configuration>
+                            <!--                            <dockerHost>tcp://loclahost:2375</dockerHost> use it incase of the wsl docker-->
+                            <images>
+                                <image>
+                                    <name>sasandip006/${project.name}:${project.version}</name>
+                                    <build>
+                                        <from>openjdk:17</from>
+                                        <assembly>
+                                            <name>builod</name>
+                                            <descriptorRef>artifact</descriptorRef>
+                                        </assembly>
+                                        <ports>
+                                            <port>7080</port> <!--application port-->
+                                        </ports>
+                                        <cmd>java -jar builod/${project.name}-${project.version}.jar</cmd>
+                                        <maintainer>sand@nets.eu</maintainer>
+                                    </build>
+                                    <run>
+                                        <ports>
+                                            <port>localhost:7070:7080</port> <!--second container/ app port-->
+                                            <!--                                            <http>true</http>               -->
+                                            <!--                                                                         <containerNamePattern>${project.name}-${project.version}</containerNamePattern>-->
+                                        </ports>
+                                        <wait>
+                                            <http>
+                                                <url>http://127.0.0.1:7070/bypass/welcome</url>
+<!--                                                <url>https://www.google.com/</url>-->
+<!--                                                <url>http://localhost:7070/hello</url>-->
+                                                <method>GET</method>
+                                                <status>200..299</status>
+                                            </http>
+                                            <log>This is the log Printed by the Sandeep Andhale to the Docker container</log>
+                                            <time>100000</time>
+                                            <kill>2000</kill>
+                                            <shutdown>100</shutdown>
+                                        </wait>
+                                        <links></links>
+                                    </run>
+                                    <!--                                    <copy><entries><entry><containerPath>/et/...any</containerPath><hostDirectory>${prop}</hostDirectory></entry></entries></copy>-->
+                                </image>
+                            </images>
+                            <!--                            <authConfig><username></username><password></password></authConfig>-->
+                            <!--                            <archive>-->
+                            <!--                                                                <manifest>-->
+                            <!--                                                                    <addClasspath>true</addClasspath>-->
+                            <!--                                                                    <classpathPrefix>builod</classpathPrefix>-->
+                            <!--                                                                </manifest>-->
+                            <!--                            </archive>-->
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>build-image</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>stop</goal>
+                                    <goal>logs</goal>
+                                    <goal>remove</goal>
+                                    <goal>build</goal>
+                                    <!--                                    <goal>push</goal>-->
+                                    <goal>logs</goal>
+                                    <goal>start</goal>
+                                    <!--                                <goal>stop</goal>-->
+                                    <!--                                <goal>start</goal>-->
+                                </goals>
+                            </execution>
+                            <execution>
+                                <id>stop</id>
+                                <phase>post-integration-test</phase>
+                                <goals>
+                                    <goal>stop</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>jib-plugin</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.google.cloud.tools</groupId>
+                        <artifactId>jib-maven-plugin</artifactId>
+                        <version>3.3.2</version>
+                        <configuration>
+                            <from>
+                                <image>openjdk:17</image>
+                            </from>
+                            <to>
+                                <image>sasandip006/${project.name}:${project.version}</image>
+                            </to>
+                            <container>
+                                <ports>
+                                    <port>8082</port>
+                                </ports>
+                            </container>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>spring:build</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>dockerBuild</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+    <!--    <build>-->
+    <!--        <plugins>-->
+    <!--            <plugin>-->
+    <!--                <groupId>org.springframework.boot</groupId>-->
+    <!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
+    <!--            </plugin>-->
+    <!--            <plugin>-->
+    <!--                <groupId>io.fabric8</groupId>-->
+    <!--                <artifactId>docker-maven-plugin</artifactId>-->
+    <!--                <version>0.40.1</version>-->
+    <!--                <configuration>-->
+    <!--                    <jibImageFormat>true</jibImageFormat>-->
+    <!--                    <images>-->
+    <!--                        <image>-->
+    <!--                            <name>sasandip006/${project.name}</name>-->
+    <!--                            <build>-->
+    <!--                                <from>openjdk:17</from>-->
+    <!--                                <assembly>-->
+    <!--                                    <name>build</name>-->
+    <!--                                    <descriptorRef>artifact</descriptorRef>-->
+    <!--                                </assembly>-->
+    <!--                                <ports>-->
+    <!--                                    <port>8098</port>-->
+    <!--                                </ports>-->
+    <!--                                <cmd>java -jar build/${project.name}-${project.version}.jar</cmd>-->
+    <!--                                <maintainer>sandeep@gmail.com</maintainer>-->
+    <!--                            </build>-->
+    <!--                        </image>-->
+    <!--                    </images>-->
+    <!--                </configuration>-->
+    <!--                <executions>-->
+    <!--                    <execution>-->
+    <!--                    </execution>-->
+    <!--                </executions>-->
+    <!--            </plugin>-->
+    <!--        </plugins>-->
+    <!--    </build>-->
+</project>
